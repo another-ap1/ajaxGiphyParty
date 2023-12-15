@@ -1,0 +1,31 @@
+
+body{
+    text-align: center;
+    background-color: rgb(16, 90, 175);
+}
+h1{
+    font-size: 70px;
+    color: pink;   
+}
+#memeGenerator {
+    text-align: center;
+    background-color: rgb(237, 237, 114);
+    padding: 30px;
+    margin: auto;
+    width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 4px rgba(237, 237, 114, .8);
+}
+#userInput{
+    margin: 3px;
+    border-radius: 5px;
+}
+.btn{
+    border-radius: 10px;
+    margin: 3px;
+    width: 100px;
+}
+.btn:hover{
+    color: red;
+    background-color: lime;
+}
