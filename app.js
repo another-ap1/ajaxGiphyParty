@@ -1,5 +1,5 @@
 console.log("Let's get this party started!");
-
+/*
 //button and area selectors
 const input = document.querySelector('#userInput');
 
@@ -26,4 +26,43 @@ searchBtn.addEventListener('click', function(e){
 rmvBtn.addEventListener('click', function(e){
     e.preventDefault();
     location.reload()
+})
+*/
+//////////////////WRITTEN WITH JQUERY/////////////////////////////////////////////////////////
+
+const API_KEY = "MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym"
+
+const $input = $('#userInput');
+
+const $searchBtn = $('#searchBtn')
+const $rmvBtn = $('#rmvBtn');
+
+const $memeArea = $('#memeContainer');
+const $images = $('#memeContainer img');
+
+async function getMeme(input) {
+    const res = await axios ({
+        baseURL : "http://api.giphy.com/",
+        url : "v1/gifs/search",
+        Method : "GET",
+        params : {
+            q : input,
+            api_key : API_KEY,
+        }
+    })
+    
+    let img = res.data.data[Math.floor(Math.random() * 50)].images.original.url;
+    const $randomMeme = $(`<img src="${img}">`);
+    $memeArea.append($randomMeme);
+
+}
+
+$searchBtn.click(function(e){
+    e.preventDefault()
+    getMeme($input.val());
+    $input.val("");
+})
+
+$rmvBtn.click(function(e){
+    location.reload();
 })
